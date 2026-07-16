@@ -124,6 +124,54 @@
         "Navbar": {
             "cardMode": "single",
             "primaryStory": "Default"
+        },
+        "AnchorButton": {
+            "cardMode": "column"
+        },
+        "Button": {
+            "cardMode": "column"
+        },
+        "Callout": {
+            "cardMode": "column"
+        },
+        "Card": {
+            "cardMode": "column"
+        },
+        "CardList": {
+            "cardMode": "column"
+        },
+        "Checkbox": {
+            "cardMode": "column"
+        },
+        "CheckboxCard": {
+            "cardMode": "column"
+        },
+        "Collapse": {
+            "cardMode": "column"
+        },
+        "ContextMenu": {
+            "cardMode": "column"
+        },
+        "ContextMenuPopover": {
+            "cardMode": "column"
+        },
+        "EditableText": {
+            "cardMode": "column"
+        },
+        "RadioCard": {
+            "cardMode": "column"
+        },
+        "RadioGroup": {
+            "cardMode": "column"
+        },
+        "SegmentedControl": {
+            "cardMode": "column"
+        },
+        "Switch": {
+            "cardMode": "column"
+        },
+        "SwitchCard": {
+            "cardMode": "column"
         }
     },
     "readmeHeader": ".design-sync/conventions.md"
