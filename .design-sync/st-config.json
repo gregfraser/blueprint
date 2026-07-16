@@ -1,0 +1,12 @@
+{
+    "projectId": "57320f42-48a0-4798-8b96-0b59296f58ca",
+    "shape": "package",
+    "pkg": "@blueprintjs/select",
+    "globalName": "BlueprintSelect",
+    "buildCmd": "COREPACK_ENABLE_STRICT=0 pnpm exec nx run-many -t compile -p @blueprintjs/select @blueprintjs/table @blueprintjs/core @blueprintjs/icons",
+    "cssEntry": "design-sync-styles.css",
+    "extraEntries": ["@blueprintjs/table", "@blueprintjs/core"],
+    "provider": {
+        "component": "BlueprintProvider"
+    }
+}
