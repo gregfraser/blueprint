@@ -1,0 +1,9 @@
+{
+    "compilerOptions": {
+        "baseUrl": ".",
+        "paths": {
+            "@storybook-common": ["../.storybook/common"],
+            "@blueprintjs/labs": ["../packages/labs/lib/esm/index.js"]
+        }
+    }
+}

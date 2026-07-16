@@ -7,5 +7,13 @@
     "storybookStatic": ".design-sync/sb-reference",
     "buildCmd": "COREPACK_ENABLE_STRICT=0 pnpm exec nx run-many -t compile -p @blueprintjs/core @blueprintjs/icons @blueprintjs/datetime @blueprintjs/labs @blueprintjs/select @blueprintjs/table",
     "cssEntry": "lib/css/blueprint.css",
-    "tsconfig": ".storybook/tsconfig.json"
+    "tsconfig": "../../.design-sync/preview-tsconfig.json",
+    "provider": {
+        "component": "BlueprintProvider"
+    },
+    "titleMap": {
+        "IconGallery": null,
+        "NextIconGallery": null,
+        "Skeleton": null
+    }
 }
