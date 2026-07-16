@@ -93,6 +93,14 @@
         "Tooltip": {
             "cardMode": "single",
             "primaryStory": "Default"
+        },
+        "ButtonGroup": {
+            "cardMode": "single",
+            "primaryStory": "Default"
+        },
+        "Breadcrumbs": {
+            "cardMode": "single",
+            "primaryStory": "Default"
         }
     }
 }

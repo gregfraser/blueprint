@@ -66,6 +66,26 @@ PLAYWRIGHT_BROWSERS_PATH=/opt/pw-browsers`. Node 22.
 - cardMode overrides already applied (config): column for wide components, single+primaryStory
   for portal overlays (Dialog/Drawer/MultistepDialog/PopoverNext/Tooltip). Do not re-apply.
 - `[EXPORT_COLLISION]` warning: `@blueprintjs/icons` and core share 8 names (Code, Label,
-  Link, Menu, SegmentedControl, Switch, …). Core wins the merge. Only matters if a story
-  imports one of these _from icons_ expecting the icon — watch Menu/Link/Switch/Label/
-  SegmentedControl/Code stories; if a component renders instead of an icon, report it.
+  Link, Menu, SegmentedControl, Switch, …). Core wins the merge. Verified harmless — the
+  affected stories (Link, Label, Switch, SegmentedControl) import from core, which wins,
+  and render the component correctly (not an icon).
+- [GENERAL] Blueprint uses **Blueprint v6**: class prefix `bp6-`, CSS tokens `--bp-*`
+  (`--bp-intent-{primary,success,warning,danger}-{rest,hover,active,foreground}`,
+  `--bp-palette-{blue,green,red,gray,…}-N`). `Classes` export → `bp6-*`; `Colors` export →
+  `BLUE3`/`GREEN3`/`GRAY1-5`/`DARK_GRAY1-5`/etc.
+
+## Overlay/portal grading context (wave-1 batch-D — Drawer, Popover, Tooltip, etc.)
+
+- [GENERAL] **Storybook crops portaled open-overlay content** to `#storybook-root` while the
+  preview captures the full viewport. A story with `isOpen:true` on a portal overlay shows a
+  cropped sliver on the storybook (left) side but renders the full open overlay in the
+  preview (right). **The preview is the faithful render** — grade the component, not the
+  cropped storybook capture. Do NOT treat "storybook shows only the trigger" as authoritative
+  when the story sets `isOpen:true`.
+- [GENERAL] **Storybook `play` functions do NOT run in the preview capture harness.** Hover/
+  click-to-open stories render OPEN in storybook but CLOSED (trigger only) in the preview.
+  These are graded `close` with a note (not fixable without forcing `isOpen`, which would
+  misrepresent the story) — the component is proven by its sibling `isOpen` stories.
+  Accepted `close`: Tooltip "Hover Open", ContextMenuPopover "Click To Open".
+- ButtonGroup + Breadcrumbs set to `cardMode:"single"` (portal/popover tail stories bleed the
+  grid card). ContextMenu/Overlay2 interaction stories render closed on both sides (match).
