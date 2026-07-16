@@ -1,0 +1,10 @@
+{
+    "projectId": "cf65c2ec-7710-49b7-b078-521dae37a042",
+    "shape": "storybook",
+    "pkg": "@blueprintjs/core",
+    "globalName": "Blueprint",
+    "storybookConfigDir": ".storybook",
+    "storybookStatic": ".design-sync/sb-reference",
+    "buildCmd": "COREPACK_ENABLE_STRICT=0 pnpm compile",
+    "cssEntry": "lib/css/blueprint.css"
+}
