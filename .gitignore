@@ -48,3 +48,5 @@ site/docs/versions/**/*.d.ts
 .design-sync/node_modules
 .ds-sync/
 ds-bundle/
+st-bundle/
+packages/select/node_modules/@blueprintjs/table
