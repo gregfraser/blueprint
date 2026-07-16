@@ -89,3 +89,34 @@ PLAYWRIGHT_BROWSERS_PATH=/opt/pw-browsers`. Node 22.
   Accepted `close`: Tooltip "Hover Open", ContextMenuPopover "Click To Open".
 - ButtonGroup + Breadcrumbs set to `cardMode:"single"` (portal/popover tail stories bleed the
   grid card). ContextMenu/Overlay2 interaction stories render closed on both sides (match).
+
+## Wave-2 findings (Alert, Card, Menu, Tabs, Tree, etc. — all 52 components now verified match)
+
+- **Alert**: all 6 stories are `sb-error` ("no storybook root content") — Alert is a portal
+  Overlay whose open content renders in `document.body`, so `#storybook-root` is empty and the
+  compare oracle captures nothing. NOT a defect: the preview renders correctly (verified by
+  directly screenshotting the `single`-mode card → info-icon alert with message + OK button).
+  Set `cardMode:"single"`, primaryStory Default. Graded match on the direct-render basis.
+- **Menu**: `[PORTAL?]` was a false positive (Menu renders inline, full-width) → set
+  `cardMode:"column"`. All 6 stories match.
+- Every other wave-2 component matched on first capture, zero preview edits.
+
+## Re-sync risks (watch-list for the next sync)
+
+- **Node version**: built on Node 22, repo pins Node >=24.14.1. A re-sync on Node 24 could
+  behave differently (tsc/sass/vite output). If the reference storybook or bundle changes
+  unexpectedly, suspect the Node version first.
+- **Alert (and any future pure-portal overlay)**: the storybook oracle can't verify it
+  (portal escapes `#storybook-root` → sb-error). Its grade rests on a direct card render, not
+  a compare pair. If Alert's story set or the Overlay internals change, re-verify by
+  screenshotting `components/core/Alert/Alert.html` directly, not via compare.
+- **Two accepted `close` grades** are play-function-driven (Tooltip "Hover Open",
+  ContextMenuPopover "Click To Open") — they render the closed trigger because the harness
+  can't run storybook `play()`. If these ever need to show the open state, they'd need an
+  owned `.tsx` forcing isOpen (which misrepresents the hover/click semantics — left as close).
+- **STORY_CAP**: components with >6 stories (Button, Alert, Menu 14, Tree, EntityTitle,
+  ButtonGroup, Tag, CompoundTag, KeyComboTag, Card, FormGroup, Tabs, Section) had only their
+  first 6 stories captured/graded; tail stories are verified-by-upload. Raise `--max-stories`
+  on a re-sync to individually verify tail variants.
+- **Bundle is Blueprint's compiled `dist/`** — deterministic from source; a re-sync rebuilds
+  it identically unless the DS source or Node toolchain changes.

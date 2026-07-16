@@ -101,6 +101,13 @@
         "Breadcrumbs": {
             "cardMode": "single",
             "primaryStory": "Default"
+        },
+        "Menu": {
+            "cardMode": "column"
+        },
+        "Alert": {
+            "cardMode": "single",
+            "primaryStory": "Default"
         }
     }
 }
