@@ -46,3 +46,26 @@ The design agent needs these enumerated, sourced from the built artifacts:
 - **Typography**: heading/running-text/text-muted/monospace classes. (docs: #core/typography)
 - Blueprint docs site is a client-rendered SPA — WebFetch only sees the shell; derive
   everything from the local built artifacts instead.
+
+## Verify-loop learnings (solo phase: Button, Icon, Callout, Dialog all match)
+
+- [GENERAL] **Icons render fine in previews** via Blueprint's `autoLoad` + the bundled
+  icon path-loader — no special handling needed (the storybook decorator's `Icons.loadAll()`
+  is NOT bundled; icons still resolve per-component). Verified on Button/Icon stories.
+- [GENERAL] `provider: {"component":"BlueprintProvider"}` supplies theme + overlay/portal/
+  hotkeys context. Decorators do NOT auto-bundle (`.storybook/preview.tsx` has a top-level
+  `await Icons.loadAll()` → esbuild "Top-level await not available" — expected, ignore).
+- [GENERAL] `@storybook-common` and `@blueprintjs/labs` (`Flex`) resolve in preview compiles
+  via `.design-sync/preview-tsconfig.json` (minimal tsconfig; do NOT point tsconfig at
+  `.storybook/tsconfig.json` — it remaps `@blueprintjs/*` to source and breaks the bundle).
+- [GENERAL] **Framing differs**: preview cells render smaller / full-width vs the storybook
+  canvas (which centers). Judge the COMPONENT, not the surrounding whitespace — sub-scale and
+  width differences from framing are `match`, not `close`.
+- [GENERAL] Env for compare/rebuild: `export DS_CHROMIUM_PATH=/opt/pw-browsers/chromium
+PLAYWRIGHT_BROWSERS_PATH=/opt/pw-browsers`. Node 22.
+- cardMode overrides already applied (config): column for wide components, single+primaryStory
+  for portal overlays (Dialog/Drawer/MultistepDialog/PopoverNext/Tooltip). Do not re-apply.
+- `[EXPORT_COLLISION]` warning: `@blueprintjs/icons` and core share 8 names (Code, Label,
+  Link, Menu, SegmentedControl, Switch, …). Core wins the merge. Only matters if a story
+  imports one of these _from icons_ expecting the icon — watch Menu/Link/Switch/Label/
+  SegmentedControl/Code stories; if a component renders instead of an icon, report it.
