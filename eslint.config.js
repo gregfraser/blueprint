@@ -95,6 +95,7 @@ module.exports = tseslint.config([
             "**/lib",
             "**/fixtures",
             "**/coverage",
+            ".design-sync/**",
             "**/__snapshots__",
             "**/generated",
         ],
