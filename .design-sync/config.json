@@ -108,6 +108,22 @@
         "Alert": {
             "cardMode": "single",
             "primaryStory": "Default"
+        },
+        "EntityTitle": {
+            "cardMode": "column"
+        },
+        "HTMLTable": {
+            "cardMode": "column"
+        },
+        "Icon": {
+            "cardMode": "column"
+        },
+        "NonIdealState": {
+            "cardMode": "column"
+        },
+        "Navbar": {
+            "cardMode": "single",
+            "primaryStory": "Default"
         }
     },
     "readmeHeader": ".design-sync/conventions.md"
