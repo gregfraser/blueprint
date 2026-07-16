@@ -5,7 +5,7 @@
     "globalName": "BlueprintSelect",
     "buildCmd": "COREPACK_ENABLE_STRICT=0 pnpm exec nx run-many -t compile -p @blueprintjs/select @blueprintjs/table @blueprintjs/core @blueprintjs/icons",
     "cssEntry": "design-sync-styles.css",
-    "extraEntries": ["@blueprintjs/table"],
+    "extraEntries": ["@blueprintjs/table", "@blueprintjs/core"],
     "provider": {
         "component": "BlueprintProvider"
     }
