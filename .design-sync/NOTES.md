@@ -30,3 +30,19 @@ id `cf65c2ec-7710-49b7-b078-521dae37a042`). Storybook shape.
   bundle's Icons singleton being loaded** — watch icon-bearing stories (Button icons, Icon).
 - Stories import `@storybook-common` (`.storybook/common.tsx`) and `@blueprintjs/labs` (`Flex`)
   for layout — these must resolve in preview compiles (storyImports bundle/shim likely needed).
+
+## Conventions header must cover (per user emphasis + Blueprint docs sections)
+
+The design agent needs these enumerated, sourced from the built artifacts:
+
+- **Setup / getting-started**: wrap the app in `<BlueprintProvider>`; import
+  `@blueprintjs/core/lib/css/blueprint.css`; `FocusStyleManager.onlyShowFocusOnTabs()`.
+  (docs: #blueprint/getting-started)
+- **Colors**: the `Colors` TS export + color scale tokens (gray/dark-gray/light-gray,
+  core blue/green/orange/red, extended). Source: `packages/colors/src/_colors.scss` +
+  `Colors` export + `blueprint.css` custom properties. (docs: #core/colors)
+- **Classes vocabulary**: the `Classes` export and `bp*-`/`.bp5-`/`.bp6-` utility classes.
+  Source: `Classes` export + `blueprint.css`. (docs: #core/classes)
+- **Typography**: heading/running-text/text-muted/monospace classes. (docs: #core/typography)
+- Blueprint docs site is a client-rendered SPA — WebFetch only sees the shell; derive
+  everything from the local built artifacts instead.
