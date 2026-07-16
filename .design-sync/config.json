@@ -5,6 +5,7 @@
     "globalName": "Blueprint",
     "storybookConfigDir": ".storybook",
     "storybookStatic": ".design-sync/sb-reference",
-    "buildCmd": "COREPACK_ENABLE_STRICT=0 pnpm compile",
-    "cssEntry": "lib/css/blueprint.css"
+    "buildCmd": "COREPACK_ENABLE_STRICT=0 pnpm exec nx run-many -t compile -p @blueprintjs/core @blueprintjs/icons @blueprintjs/datetime @blueprintjs/labs @blueprintjs/select @blueprintjs/table",
+    "cssEntry": "lib/css/blueprint.css",
+    "tsconfig": ".storybook/tsconfig.json"
 }
