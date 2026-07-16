@@ -50,3 +50,4 @@ site/docs/versions/**/*.d.ts
 ds-bundle/
 st-bundle/
 packages/select/node_modules/@blueprintjs/table
+st-bundle/
