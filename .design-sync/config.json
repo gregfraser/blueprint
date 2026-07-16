@@ -15,5 +15,84 @@
         "IconGallery": null,
         "NextIconGallery": null,
         "Skeleton": null
+    },
+    "overrides": {
+        "ProgressBar": {
+            "cardMode": "column"
+        },
+        "Section": {
+            "cardMode": "column"
+        },
+        "Slider": {
+            "cardMode": "column"
+        },
+        "Spinner": {
+            "cardMode": "column"
+        },
+        "Tabs": {
+            "cardMode": "column"
+        },
+        "Tree": {
+            "cardMode": "column"
+        },
+        "ControlGroup": {
+            "cardMode": "column"
+        },
+        "FormGroup": {
+            "cardMode": "column"
+        },
+        "HTMLSelect": {
+            "cardMode": "column"
+        },
+        "Label": {
+            "cardMode": "column"
+        },
+        "KeyComboTag": {
+            "cardMode": "column"
+        },
+        "FileInput": {
+            "cardMode": "column"
+        },
+        "InputGroup": {
+            "cardMode": "column"
+        },
+        "NumericInput": {
+            "cardMode": "column"
+        },
+        "TagInput": {
+            "cardMode": "column"
+        },
+        "Overlay2": {
+            "cardMode": "column"
+        },
+        "Toast": {
+            "cardMode": "column"
+        },
+        "CompoundTag": {
+            "cardMode": "column"
+        },
+        "Tag": {
+            "cardMode": "column"
+        },
+        "Dialog": {
+            "cardMode": "single",
+            "primaryStory": "Default"
+        },
+        "Drawer": {
+            "cardMode": "single",
+            "primaryStory": "Default"
+        },
+        "MultistepDialog": {
+            "cardMode": "single",
+            "primaryStory": "Default"
+        },
+        "PopoverNext": {
+            "cardMode": "single",
+            "primaryStory": "DefaultIsOpenExample"
+        },
+        "Tooltip": {
+            "cardMode": "single",
+            "primaryStory": "Default"
+        }
     }
 }
